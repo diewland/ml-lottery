@@ -15,6 +15,9 @@ months = {
     'ธันวาคม': 12,
 }
 
+rows = []
+
+# parse raw data to rows
 infile = open('lottery.txt', encoding='utf-8')
 for line in infile:
     l = line.strip()
@@ -104,4 +107,11 @@ for line in infile:
             bottom3_1,
             bottom3_2,
         ]
-        print(row)
+
+        rows.append(row)
+
+# print csv
+print("day,month,year,no1,top2,top3,bottom2,front3_1,front3_2,bottom3_1,bottom3_2")
+for row in rows:
+    print(",".join([ str(v) for v in row ]))
+    #print("'%s'" % "','".join([ str(v) for v in row ]))
